@@ -12,4 +12,4 @@ jobs:
     steps:
       - name: 패스필터
         run: |
-          echo 'hello'
+          echo 'hello22'
