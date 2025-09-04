@@ -1,0 +1,31 @@
+name: artifact
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  artifact:
+    runs-on: ubuntu-latest
+    steps:
+      - name: echo
+        run: |
+          echo 'hello-world' > hello.txt
+     - name: '업로드 테스트'
+       uses: actions/upload-artifact@v3
+       with:
+         name: 'artifact'
+         path: ./hello.txt
+
+  download-artifact:
+    runs-on: ubuntu-latest
+    needs: [artifact]
+    steps:
+      - name: '다운로드 아티팩트'
+        uses: actions/download-artifact@v3
+        with:
+          name: 'download-artifact'
+          path: ./hello.txt
+
+
+
