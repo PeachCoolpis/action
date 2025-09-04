@@ -1,0 +1,17 @@
+name: stirng-function
+
+on: push
+
+jobs:
+  string:
+    runs-on: ubuntu-latest
+    steps:
+      - name: startWish
+        if: startsWith('github actions', 'git')
+        run: echo 'git'
+      - name: endWish
+        if: endsWith('github actions', 'actions')
+        run: echo 'git'
+      - name: contains
+        if: contains('github actions', 'hub')
+        run: echo 'git'
