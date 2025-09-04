@@ -11,9 +11,10 @@ jobs:
       - name: echo
         run: |
           echo 'hello-world' > hello.txt
-     - name: '업로드 테스트'
-       uses: actions/upload-artifact@v3
-       with:
+
+      - name: '업로드 테스트'
+        uses: actions/upload-artifact@v3
+        with:
          name: 'artifact'
          path: ./hello.txt
 
@@ -26,6 +27,3 @@ jobs:
         with:
           name: 'download-artifact'
           path: ./hello.txt
-
-
-
