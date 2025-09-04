@@ -23,7 +23,7 @@ jobs:
     needs: [artifact]
     steps:
       - name: '다운로드 아티팩트'
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v4
         with:
           name: 'download-artifact'
           path: ./hello.txt
