@@ -13,7 +13,7 @@ jobs:
           echo 'hello-world' > hello.txt
 
       - name: '업로드 테스트'
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
          name: 'artifact'
          path: ./hello.txt
@@ -23,7 +23,7 @@ jobs:
     needs: [artifact]
     steps:
       - name: '다운로드 아티팩트'
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v5
         with:
           name: 'download-artifact'
           path: ./hello.txt
