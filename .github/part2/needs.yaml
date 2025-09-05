@@ -21,4 +21,4 @@ jobs:
     steps:
       - name: echo
         run: |
-          echo "job done3"
+          ec  ho "job done3"
