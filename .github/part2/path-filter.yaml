@@ -1,0 +1,15 @@
+name: path-filter
+on:
+  push:
+    paths:
+      - .github/part2/*
+    branches:
+      - main
+
+jobs:
+  path-filter:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 패스필터
+        run: |
+          echo 'hello22'
