@@ -14,4 +14,4 @@ jobs:
         run: echo 'git'
       - name: contains
         if: contains('github actions', 'hub')
-           run: echo 'git'
+        run: echo 'git'
