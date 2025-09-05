@@ -7,7 +7,6 @@ on:
     types:
       - opened
       - synchronize
-      - closed
     branches:
       - main
 
@@ -41,7 +40,7 @@ jobs:
 
   build:
     needs: detect-changes
-    if: github.event.action == 'closed' && needs.detect-changes.outputs.frontend == 'true'
+    if: github.event_name == 'push' && needs.detect-changes.outputs.frontend == 'true'
     runs-on: ubuntu-latest
     steps:
       - name: 체크아웃
