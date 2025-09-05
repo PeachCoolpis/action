@@ -48,7 +48,7 @@ jobs:
 
       - name: 빌드
         run: |
-          cd front && npm build
+          cd front && npm run build
      
         
 
