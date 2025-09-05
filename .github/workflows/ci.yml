@@ -12,8 +12,24 @@ on:
       - main
 
 jobs:
+  detect-changes:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: dorny/paths-filter@v3
+        id: changes
+        with:
+          filters: |
+            frontend : 
+              - 'front/**'
+
+    outputs:
+      frontend: ${{steps.changes.outputs.frontend}}
+
   test:
-    if: github.event.action == 'opened' || github.event.action == 'synchronize'
+    needs: detect-changes
+    if: (github.event.action == 'opened' || github.event.action == 'synchronize') && needs.detect-changes.outputs.frontend == 'true'
     runs-on: ubuntu-latest
     steps:
       - name: 체크아웃
@@ -22,4 +38,10 @@ jobs:
       - name : 테스트
         run : |
          cd front && npm ci
+
+      - name: 빌드
+        if: github.event.action.closed
+        run: |
+          cd front && npm build
+        
 
