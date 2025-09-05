@@ -1,18 +1,16 @@
-name: 스테이징 반영
-
+name: ci.yml
 on:
   push:
     branches:
       - dev
 
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 체크아웃
+        uses: actions/checkout@v4
 
-  jobs:
-    test:
-      runs-on: ubuntu-latest
-      steps:
-        - name: 체크아웃
-          uses: actions/checkout@v4
-
-        - name: 테스트
-          run: |
-            cd front && npm ci
+      - name: 테스트
+        run: |
+          cd front && npm ci
